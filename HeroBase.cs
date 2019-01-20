@@ -29,14 +29,12 @@ public class HeroBase : MonoBehaviour {
     public AudioSource audioSource;
     public AudioClip hit;
 
-    private Rigidbody body;
     protected Transform attackPosition;
     
     //Attacks
     protected HeroBase[] enemyHeroes;
     
 	void Start () {
-        body = GetComponent<Rigidbody>();
         heroMesh = GetComponent<MeshRenderer>();
         initialColor = heroMesh.material.color;
         attackPosition = gameObject.transform.Find("AttackPosition");

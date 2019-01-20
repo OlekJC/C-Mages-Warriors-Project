@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Transform[] spawnPoints;
     public Text round;
     public Camera mainCamera;
+    public Button exitButton;
 
     //public Button[] attackButtons;
     
@@ -83,8 +84,10 @@ public class GameManager : MonoBehaviour
             yield return StartCoroutine(CheckWinner());
         }
 
-        round.text = "End of the game!\n"+gameWinner+" won!";
-        Debug.Log("End of the game!");
+        exitButton.gameObject.SetActive(true);
+        exitButton.onClick.AddListener(() => Application.Quit());
+        round.text = "End of the game!\n"+gameWinner+" won!\n";
+        
     }
 
     private IEnumerator EndRoundRoutine()
